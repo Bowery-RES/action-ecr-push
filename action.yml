@@ -25,6 +25,9 @@ inputs:
     description: 'Path to root folder with image'
     required: false
     default: .
+  github_token:
+    description: 'Github token'
+    required: true
 
 runs:
   using: "composite"
@@ -32,7 +35,7 @@ runs:
     - name: Check out code
       uses: actions/checkout@v2
       with:
-        token: ${{ secrets.ACCESS_TOKEN }}
+        token: ${{ input.github_token }}
         submodules: true
 
     - name: Configure AWS credentials
