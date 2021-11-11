@@ -1,6 +1,8 @@
 # Action ECR Push
 
 > Composite action to build, tag and push docker image to private ECR Registry.
+> 
+> **Repository should be created manually**
 
 # Usage
 
@@ -22,4 +24,5 @@ jobs:
           image_tag: <image-tag> # required
           ecr_repository: <project-name> # required
           path: ./server # optional
+          github_token: <personal-access-token> # optional Necessary only when repo uses submodules
 ```
