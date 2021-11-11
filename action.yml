@@ -21,6 +21,10 @@ inputs:
     description: 'AWS Region'
     required: true
     default: 'us-east-1'
+  path:
+    description: 'Path to root folder with image'
+    required: false
+    default: .
 
 runs:
   using: "composite"
@@ -48,5 +52,5 @@ runs:
         ECR_REPOSITORY: ${{ inputs.ecr_repository }}
         IMAGE_TAG: ${{ inputs.image_tag }}
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ${{ inputs.path }}
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
