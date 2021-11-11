@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Push Docker Image to ECR
     steps:
-      - uses: Bowery-RES/action-ecr-push@v1
+      - uses: Bowery-RES/action-ecr-push@v1.1
         with: 
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # required
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }} # required
