@@ -1,9 +1,6 @@
 name: 'Build and push docker image to ECR'
 description: 'Greet someone'
 inputs:
-  ecr_registry:
-    description: 'ECR registry'
-    required: true
   ecr_repository:
     description: 'ECR Repository'
     required: true
