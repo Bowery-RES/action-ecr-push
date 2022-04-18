@@ -17,10 +17,13 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Push Docker Image to ECR
     steps:
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: #<role arn>
+          aws-region: "us-east-1"
+
       - uses: Bowery-RES/action-ecr-push@v1.1
         with: 
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # required
-          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }} # required
           image_tag: <image-tag> # required
           ecr_repository: <project-name> # required
           path: ./server # optional
